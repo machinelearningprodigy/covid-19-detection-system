@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Prediction using ML</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>COVID-19 Prediction using ML</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label>Does the patient have a breathing problem?</label>
+                <select name="Breathing_Problem">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have fever?</label>
+                <select name="Fever">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have dry cough?</label>
+                <select name="Dry_Cough">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have a sore throat?</label>
+                <select name="Sore_throat">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have a running nose?</label>
+                <select name="Running_Nose">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have asthma?</label>
+                <select name="Asthma">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have chronic lung disease?</label>
+                <select name="Chronic_Lung_Disease">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have a headache?</label>
+                <select name="Headache">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have heart disease?</label>
+                <select name="Heart_Disease">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have diabetes?</label>
+                <select name="Diabetes">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have hypertension?</label>
+                <select name="Hyper_Tension">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient feel fatigue?</label>
+                <select name="Fatigue">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have gastrointestinal issues?</label>
+                <select name="Gastrointestinal">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Has the patient traveled abroad?</label>
+                <select name="Abroad_travel">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Has the patient been in contact with a COVID-19 patient?</label>
+                <select name="Contact_with_COVID_Patient">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Has the patient attended a large gathering?</label>
+                <select name="Attended_Large_Gathering">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Has the patient visited public exposed places?</label>
+                <select name="Visited_Public_Exposed_Places">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Does the patient have family members working in public exposed places?</label>
+                <select name="Family_working_in_Public_Exposed_Places">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Predict</button>
+            </div>
+        </form>
+        {% if prediction is not none %}
+            {% if prediction == 0 %}
+                <div class="result success">You do not have any symptoms of COVID-19. Stay home! Stay safe!</div>
+            {% else %}
+                <div class="result error">You may be affected with COVID-19 virus! Please get RTPCR test ASAP and stay in Quarantine for 14 days!</div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
